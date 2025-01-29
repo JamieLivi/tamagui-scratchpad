@@ -56,7 +56,7 @@ export default function TabOneScreen() {
         <Text>Corresponds to weight $8, size $8, line height $8 etc</Text>
       </HContainer>
       <HContainer>
-        <H4>Heading 4</H4>
+        <H4 theme="accent">Heading 4 IN ACCENT THEME</H4>
         <Text>Corresponds to weight $7, size $7, line height $7 etc</Text>
       </HContainer>
       <HContainer>
@@ -68,10 +68,16 @@ export default function TabOneScreen() {
         <Text>Corresponds to weight $5, size $5, line height $5 etc</Text>
       </HContainer>
 
-      <Separator borderColor="$accent10" width="100%" my="$5" />
+      <Separator width="100%" my="$5" />
 
       <BContainer>
-        <Button icon={Mail} size="$5">
+        <Button
+          $gtXs={{
+            size: "$5",
+          }}
+          icon={Mail}
+          size="$4"
+        >
           Size 5
         </Button>
         <Text>
@@ -80,13 +86,10 @@ export default function TabOneScreen() {
         </Text>
       </BContainer>
       <BContainer>
-        <Button themeInverse icon={Mail} size="$4">
+        <Button icon={Mail} size="$4">
           Size 4
         </Button>
-        <Text>
-          Size 4, height = 44px. themeInverse, notice how font and icon change
-          automatically. This is default since $true: 44
-        </Text>
+        <Text>Size 4, height = 44px. This is default since $true: 44</Text>
         <Button icon={Mail}>Size default</Button>
       </BContainer>
       <BContainer>
@@ -108,11 +111,25 @@ export default function TabOneScreen() {
 
       <Separator my="$5" />
 
+      <H3 mb="$4">Variants</H3>
+
+      <BContainer>
+        <Button variant="outlined" theme="accent" iconAfter={Mail} size="$4">
+          Secondary
+        </Button>
+        <Text>
+          Here the "outlined" prop gives the button a 2px border, then we set
+          the theme to accent
+        </Text>
+      </BContainer>
+
+      <Separator my="$5" />
+
       <H3 mb="$4">Sizing stuff</H3>
       <Card elevate size="$4" width="$15" height="$20" bordered>
-        <Card.Header padded bg="$yellow5">
+        <Card.Header padded bg="yellow">
           <H2 mb="$3">Card Header</H2>
-          <Paragraph size="$3" theme="red">
+          <Paragraph size="$3">
             See how padding in this header is derived from the size of the card
             - size = $4, $4 space = 18px so padding is 18
           </Paragraph>
@@ -130,21 +147,12 @@ export default function TabOneScreen() {
             </SizableText>
           </Link>
         </YStack>
-        <Card.Footer padded bg="$accent10">
+        <Card.Footer padded bg="$skyline">
           <XStack flex={1}>
             <Text themeInverse>Padding here also derived from card size</Text>
           </XStack>
-          <Button>Purchase</Button>
+          <Button>Invest</Button>
         </Card.Footer>
-        {/* <Card.Background>
-        <Image
-          source={{
-            width: 300,
-            height: 300,
-            uri: 
-          }}
-        />
-      </Card.Background> */}
       </Card>
     </ScrollView>
   );
