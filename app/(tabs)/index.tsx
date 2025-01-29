@@ -17,6 +17,7 @@ import {
   YStack,
   Image,
   SizableText,
+  View,
 } from "tamagui";
 import { ToastControl } from "app/CurrentToast";
 import { Mail } from "@tamagui/lucide-icons";
@@ -34,6 +35,8 @@ const BContainer = ({ children }: PropsWithChildren) => (
     {children}
   </XStack>
 );
+
+// console.log(Button.staticConfig);
 
 export default function TabOneScreen() {
   return (
@@ -81,16 +84,15 @@ export default function TabOneScreen() {
           Size 5
         </Button>
         <Text>
-          Inspect element and see how padding = 24, which is space value $5.
-          Height = 52, which is size token $5
+          Inspect element and see how padding which is space value $5, size
+          token 5
         </Text>
       </BContainer>
       <BContainer>
         <Button icon={Mail} size="$4">
           Size 4
         </Button>
-        <Text>Size 4, height = 44px. This is default since $true: 44</Text>
-        <Button icon={Mail}>Size default</Button>
+        <Text>Size 4</Text>
       </BContainer>
       <BContainer>
         <Button icon={Mail} size="$3">
@@ -98,7 +100,6 @@ export default function TabOneScreen() {
         </Button>
         <Text>
           See how icon and font scale down automatically according to parents
-          size. Padding here is 13, which is space value $3
         </Text>
       </BContainer>
 
@@ -123,10 +124,19 @@ export default function TabOneScreen() {
         </Text>
       </BContainer>
 
+      <XStack gap="$4" mt="$4" items="center">
+        <View flex={1}>
+          <Button size="$5">Invest</Button>
+        </View>
+        <View flex={1}>
+          <Text>Size 5</Text>
+        </View>
+      </XStack>
+
       <Separator my="$5" />
 
       <H3 mb="$4">Sizing stuff</H3>
-      <Card elevate size="$4" width="$15" height="$20" bordered>
+      <Card width={340} elevate bordered>
         <Card.Header padded bg="yellow">
           <H2 mb="$3">Card Header</H2>
           <Paragraph size="$3">
